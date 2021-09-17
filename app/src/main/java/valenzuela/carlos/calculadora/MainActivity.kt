@@ -12,10 +12,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var auxNumber: Int
-        var auxOperation: Int
-        var auxResult: Int
-
         var results: TextView = findViewById(R.id.textViewManejador) as TextView
         var dataEnter: TextView = findViewById(R.id.textViewIngresoDatos) as TextView
 
@@ -38,115 +34,169 @@ class MainActivity : AppCompatActivity() {
 
 
 
-            var aux: String
-            var aux2: String = ""
+            var auxDigit: String = ""
+            var auxOperation: String = ""
+            var auxNumber = ""
+
             one.setOnClickListener{
-                aux = "1"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit = "1"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             two.setOnClickListener{
-                aux = "2"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit = "2"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             three.setOnClickListener{
-                aux = "3"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit = "3"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             four.setOnClickListener{
-                aux = "4"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit = "4"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             five.setOnClickListener{
-                aux ="5"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit ="5"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             six.setOnClickListener{
-                aux = "6"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit = "6"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             seven.setOnClickListener{
-                aux = "7"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit = "7"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             eigth.setOnClickListener{
-                aux = "8"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit = "8"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             nine.setOnClickListener{
-                aux = "9"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit = "9"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             zero.setOnClickListener{
-                aux = "0"
-                aux2.plus(aux)
-                dataEnter.setText("")
-                dataEnter.setText(aux2)
+                auxDigit = "0"
+                if(auxNumber != null && auxNumber != "") {
+                    auxNumber = auxNumber.plus(auxDigit)
+                }else{
+                    auxNumber = auxDigit
+                }
+                dataEnter.text = "$auxNumber"
             }
 
             plus.setOnClickListener{
-                results.setText(aux2.plus("+"))
+                auxOperation = auxNumber.plus("+")
+                results.setText(auxOperation)
+                auxNumber = ""
+                dataEnter.text = ""
+
             }
 
             less.setOnClickListener{
-                results.setText(aux2.plus("-"))
+                auxOperation = auxNumber.plus("-")
+                results.setText(auxOperation)
+                auxNumber = ""
+                dataEnter.text = ""
             }
 
             div.setOnClickListener{
-                results.setText(aux2.plus("/"))
+                auxOperation = auxNumber.plus("/")
+                results.setText(auxOperation)
+                auxNumber = ""
+                dataEnter.text = ""
             }
 
             multi.setOnClickListener{
-                results.setText(aux2.plus("x"))
+                auxOperation = auxNumber.plus("x")
+                results.setText(auxOperation)
+                auxNumber = ""
+                dataEnter.text = ""
             }
 
             result.setOnClickListener {
-                var auxUpper: String = result.text as String
-                var result: Int = 0
+                var upper: String = auxOperation
 
-                if (auxUpper != null) {
-                    var auxOperation: String = auxUpper.get(auxUpper.lastIndex).toString()
-                    var asNumber: Int = auxUpper.dropLast(1).toInt()
-                    if (asNumber != 0) {
-                        var auxLower: String = dataEnter.text as String
-                        if (auxLower != null) {
-                            var finalNumber: Int = auxLower.toInt()
-                            if (auxOperation.equals("+")) {
-                                result = asNumber + finalNumber
-                            } else if (auxOperation.equals("-")) {
-                                result = asNumber - finalNumber
-                            } else if (auxOperation.equals("/")) {
-                                result = asNumber / finalNumber
-                            } else if (auxOperation.equals("x")) {
-                                result = asNumber * finalNumber
+                var lower: String = auxNumber
+
+                var result = 0
+
+                if (upper != null && lower != null) {
+                    var operationSign: String = upper.get(upper.lastIndex).toString()
+
+                    var firstNumber: Int = upper.dropLast(1).toInt()
+                    var secondNumber: Int = lower.toInt()
+
+                    if (firstNumber != 0) {
+
+                            if (operationSign.equals("+")) {
+                                result = firstNumber + secondNumber
+                                auxNumber = ""
+                            } else if (operationSign.equals("-")) {
+                                result = firstNumber - secondNumber
+                                auxNumber = ""
+                            } else if (operationSign.equals("/")) {
+                                result = firstNumber / secondNumber
+                                auxNumber = ""
+                            } else if (operationSign.equals("x")) {
+                                result = firstNumber * secondNumber
+                                auxNumber = ""
                             }
-                        }
+                    } else{
+                        result = secondNumber
                     }
                 }
 
@@ -154,7 +204,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             del.setOnClickListener{
-                aux2 = aux2.dropLast(1)
+                auxNumber = auxNumber.dropLast(1)
+                dataEnter.text = auxNumber
             }
 
     }
