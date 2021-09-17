@@ -111,19 +111,19 @@ class MainActivity : AppCompatActivity() {
             }
 
             plus.setOnClickListener{
-                result.setText(aux2.plus("+"))
+                results.setText(aux2.plus("+"))
             }
 
             less.setOnClickListener{
-                result.setText(aux2.plus("-"))
+                results.setText(aux2.plus("-"))
             }
 
             div.setOnClickListener{
-                result.setText(aux2.plus("/"))
+                results.setText(aux2.plus("/"))
             }
 
             multi.setOnClickListener{
-                result.setText(aux2.plus("x"))
+                results.setText(aux2.plus("x"))
             }
 
             result.setOnClickListener {
