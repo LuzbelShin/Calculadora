@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
@@ -198,9 +199,13 @@ class MainActivity : AppCompatActivity() {
                     } else{
                         result = secondNumber
                     }
+                    dataEnter.text = "$result"
+                    auxNumber = ""
+                }else{
+                    Toast.makeText(applicationContext, "Favor de ingresar valores.", Toast.LENGTH_SHORT).show()
                 }
 
-                dataEnter.text = "$result"
+
             }
 
             del.setOnClickListener{
